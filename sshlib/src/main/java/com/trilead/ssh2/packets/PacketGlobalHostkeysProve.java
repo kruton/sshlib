@@ -23,24 +23,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * PacketGlobalHostkeys implements the hostkeys-00@openssh.com packet specified in
+ * PacketGlobalHostkeysProve implements the hostkeys-00@openssh.com packet specified in
  * <a href="https://github.com/openssh/openssh-portable/blob/deb8d99ecba70b67f4af7880b11ca8768df9ec3a/PROTOCOL">OpenSSH documentation</a>.
  *
  * @author Kenny Root
  */
-public class PacketGlobalHostkeys
+public class PacketGlobalHostkeysProve
 {
-        private static final String HOSTKEYS_ID = "hostkeys-00@openssh.com";
-
 	private final byte[] payload;
 	private final ArrayList<byte[]> hostKeys;
 
-	public PacketGlobalHostkeys(List<byte[]> hostKeys)
+	public PacketGlobalHostkeysProve(List<byte[]> hostKeys)
 	{
 		this.hostKeys = hostKeys;
 	}
 
-	public PacketGlobalHostkeys(byte[] data, int off, int len) throws IOException
+	public PacketGlobalHostkeysProve(byte[] data, int off, int len) throws IOException
 	{
 		payload = Arrays.copyOfRange(payload, off, off + len);
 		System.arraycopy(payload, off, this.payload, 0, len);

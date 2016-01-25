@@ -1631,6 +1631,10 @@ public class ChannelManager implements MessageHandler
 
 		if (log.isEnabled())
 			log.log(80, "Got SSH_MSG_GLOBAL_REQUEST (" + requestName + ")");
+
+                if (PacketGlobalHostkeys.HOSTKEYS_ID.equals(requestName)) {
+                        PacketGlobalHostkeys hostkeys = new PacketGlobalHostkeys(msg, 0, msglen);
+                }
 	}
 
 	public void msgGlobalSuccess() {
